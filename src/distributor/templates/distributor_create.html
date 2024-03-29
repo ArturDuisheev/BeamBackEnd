@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Distributor List & Create</title>
+</head>
+<body>
+    <h1>Distributor List & Create</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        <label for="id_fullname">Fullname:</label><br>
+        <input type="text" id="id_fullname" name="fullname" required><br>
+        <label for="id_email">Email:</label><br>
+        <input type="email" id="id_email" name="email" required><br>
+        <button type="submit">Create</button>
+    </form>
+
+    <h2>Distributors</h2>
+    <ul>
+        {% for distributor in distributors %}
+            <li>
+                <strong>{{ distributor.fullname }}</strong> - {{ distributor.email }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
