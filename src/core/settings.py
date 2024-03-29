@@ -1,12 +1,13 @@
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-%r7h*j18@o$c!dq$ipvg%_10=d2nqb-+n1)#cpzvba56x1(&l!'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS')
 
 THEME = [
     'jazzmin',
